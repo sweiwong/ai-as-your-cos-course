@@ -10,8 +10,9 @@
   /* Warm gold primary — executive, authoritative */
   --color-fd-primary: hsl(40 85% 55%);
   --color-fd-primary-foreground: hsl(30 20% 10%);
-  --color-fd-accent: hsl(30 18% 16%);
-  --color-fd-accent-foreground: hsl(40 50% 78%);
+  /* Light mode accent: warm light gray so surfaces don't vanish */
+  --color-fd-accent: hsl(35 20% 95%);
+  --color-fd-accent-foreground: hsl(30 30% 25%);
   --color-fd-ring: hsl(40 85% 55%);
 }
 
@@ -36,6 +37,10 @@
   /* Secondary surfaces */
   --color-fd-secondary: hsl(220 18% 16%);
   --color-fd-secondary-foreground: hsl(210 20% 95%);
+
+  /* Dark mode accent: restore original dark brown */
+  --color-fd-accent: hsl(30 18% 16%);
+  --color-fd-accent-foreground: hsl(40 50% 78%);
 }
 
 /* ---- Typography ---- */
@@ -43,6 +48,12 @@
 body {
   font-family: var(--font-body);
   line-height: 1.7;
+  /* Light mode: soft warm white, gentle uniform tint */
+  background-color: hsl(40 20% 98%);
+  background-image: none;
+}
+.dark body {
+  /* Dark mode: richer warm gradient */
   background-image:
     radial-gradient(circle at 15% -20%, rgb(92 72 30 / 20%), transparent 45%),
     radial-gradient(circle at 100% 0%, rgb(60 30 80 / 15%), transparent 33%);
@@ -71,18 +82,24 @@ pre, code {
 
 /* Plum bullet markers — accent color */
 .prose :where(ul > li)::marker {
-  color: hsl(280 50% 65%);
+  color: hsl(280 40% 50%);
 }
 .prose :where(ol > li)::marker {
-  color: hsl(280 50% 65%);
+  color: hsl(280 40% 50%);
   font-weight: 700;
+}
+.dark .prose :where(ul > li)::marker {
+  color: hsl(280 50% 65%);
+}
+.dark .prose :where(ol > li)::marker {
+  color: hsl(280 50% 65%);
 }
 
 /* ---- Tables ---- */
 
 /* Table headers: strong background, clear separation */
 .prose :where(thead th) {
-  background-color: hsl(220 18% 16%);
+  background-color: hsl(35 25% 93%);
   border-bottom: 2px solid hsl(40 85% 55% / 0.4);
   padding: 0.75rem 1rem;
   font-weight: 600;
@@ -92,16 +109,30 @@ pre, code {
 /* Table cells: comfortable padding */
 .prose :where(td) {
   padding: 0.625rem 1rem;
-  border-bottom: 1px solid hsl(220 16% 26% / 0.5);
+  border-bottom: 1px solid hsl(30 15% 80%);
 }
 
 /* Alternating row backgrounds for readability */
 .prose :where(tbody tr:nth-child(even)) {
-  background-color: hsl(220 18% 14% / 0.5);
+  background-color: hsl(35 20% 96%);
 }
 
 /* Subtle hover on rows */
 .prose :where(tbody tr):hover {
+  background-color: hsl(35 20% 92%);
+}
+
+/* Dark mode table overrides */
+.dark .prose :where(thead th) {
+  background-color: hsl(220 18% 16%);
+}
+.dark .prose :where(td) {
+  border-bottom-color: hsl(220 16% 26% / 0.5);
+}
+.dark .prose :where(tbody tr:nth-child(even)) {
+  background-color: hsl(220 18% 14% / 0.5);
+}
+.dark .prose :where(tbody tr):hover {
   background-color: hsl(220 18% 16% / 0.7);
 }
 
@@ -109,8 +140,8 @@ pre, code {
 
 /* Code block wrapper (figure.shiki): single clean container */
 figure.shiki {
-  background-color: hsl(220 24% 7%) !important;
-  border: 1px solid hsl(220 16% 22%);
+  background-color: hsl(220 15% 97%) !important;
+  border: 1px solid hsl(220 15% 85%);
   border-radius: 0.625rem;
   position: relative;
 }
@@ -122,30 +153,50 @@ figure.shiki pre {
   margin: 0;
 }
 
-/* Copy button: gold icon on dark background, always visible */
+/* Copy button: gold icon, always visible */
 figure.shiki button[aria-label] {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  color: hsl(40 85% 55%);
-  background-color: hsl(40 30% 15%);
-  border: 1px solid hsl(40 50% 30%);
+  color: hsl(35 70% 40%);
+  background-color: hsl(40 30% 92%);
+  border: 1px solid hsl(40 30% 78%);
   border-radius: 0.375rem;
   padding: 0.35rem;
   transition: background-color 0.15s, color 0.15s;
 }
 figure.shiki button[aria-label]:hover {
-  background-color: hsl(40 40% 22%);
-  color: hsl(40 90% 65%);
+  background-color: hsl(40 35% 85%);
+  color: hsl(35 80% 35%);
 }
 
 /* Inline code: pill-shaped, distinct background */
 .prose :where(:not(pre) > code) {
-  background-color: hsl(220 20% 18%);
-  border: 1px solid hsl(220 16% 28%);
+  background-color: hsl(35 25% 94%);
+  border: 1px solid hsl(35 20% 82%);
   border-radius: 0.25rem;
   padding: 0.15rem 0.4rem;
   font-size: 0.875em;
+  color: hsl(30 60% 35%);
+}
+
+/* Dark mode code overrides */
+.dark figure.shiki {
+  background-color: hsl(220 24% 7%) !important;
+  border-color: hsl(220 16% 22%);
+}
+.dark figure.shiki button[aria-label] {
+  color: hsl(40 85% 55%);
+  background-color: hsl(40 30% 15%);
+  border-color: hsl(40 50% 30%);
+}
+.dark figure.shiki button[aria-label]:hover {
+  background-color: hsl(40 40% 22%);
+  color: hsl(40 90% 65%);
+}
+.dark .prose :where(:not(pre) > code) {
+  background-color: hsl(220 20% 18%);
+  border-color: hsl(220 16% 28%);
   color: hsl(40 70% 72%);
 }
 
@@ -155,9 +206,15 @@ figure.shiki button[aria-label]:hover {
 .prose :where(.callout, [data-callout]),
 [data-callout] {
   border-left: 3px solid hsl(40 85% 55%);
-  background-color: hsl(40 20% 14% / 0.5);
+  background-color: hsl(40 30% 96%);
   border-radius: 0.5rem;
   border-top: none;
   border-right: none;
   border-bottom: none;
+}
+
+/* Dark mode callout override */
+.dark .prose :where(.callout, [data-callout]),
+.dark [data-callout] {
+  background-color: hsl(40 20% 14% / 0.5);
 }

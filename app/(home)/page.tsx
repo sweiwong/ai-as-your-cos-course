@@ -10,6 +10,17 @@ export default function HomePage() {
       >
         Start the Course
       </Link>
+
+      {/* Author attribution */}
+      <p className="mt-16 text-sm text-fd-muted-foreground">
+        Created by Wei Wong —{' '}
+        <a
+          href="mailto:shihwei.wong@gmail.com"
+          className="underline hover:text-fd-foreground transition-colors"
+        >
+          shihwei.wong@gmail.com
+        </a>
+      </p>
     </div>
   );
 }
