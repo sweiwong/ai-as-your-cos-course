@@ -1,0 +1,312 @@
+---
+title: "2.1: Who Am I"
+description: Build your identity context file so Claude understands your role, goals, and constraints — and gives you better answers every time.
+---
+
+## Overview
+
+In Lesson 1.1, you wrote an identity statement and pasted it into Claude. That was a good start, but it disappears when you close the session. This lesson makes it permanent.
+
+You're going to create a dedicated identity context file — a document that tells Claude who you are, what you do, and what matters to you. When this file lives in your project folder and your CLAUDE.md references it, Claude reads it automatically. Every session starts with Claude already knowing you.
+
+This is the single highest-leverage thing you can do to improve Claude's output. Generic AI gives generic answers. AI that knows you gives *useful* answers.
+
+## What You'll Learn
+
+- How to write an identity context file
+- What to include (and what to skip)
+- How identity context changes Claude's output (with before/after examples)
+- Three complete persona examples you can adapt
+
+## The Before and After
+
+Here's why this matters. Same prompt, dramatically different output.
+
+<Tabs items={["Without Context", "With Context"]}>
+<Tab>
+
+**Prompt:**
+```
+Help me write a LinkedIn post about the importance of systems in business.
+```
+
+**Claude's output:**
+> "Systems are the backbone of any successful business. Whether you're a startup or a Fortune 500 company, having the right systems in place can make or break your growth trajectory. Here are 5 reasons every business needs better systems: 1) Scalability..."
+
+Generic. Could be written by anyone for anyone. You'd never post this.
+
+</Tab>
+<Tab>
+
+**Prompt (with identity file loaded):**
+```
+Help me write a LinkedIn post about the importance of systems in business.
+```
+
+**Claude's output:**
+> "Last month I spent 4 hours tracking down a client invoice that should have taken 2 minutes. That's when I knew my business had outgrown my spreadsheet.
+>
+> I'm an operations consultant. I literally help other companies fix their systems. And yet my own invoicing process was a mess.
+>
+> Here's what I've learned after 6 years of solo consulting: the systems you need at $50K/year are completely different from the ones you need at $200K. What worked when I had 2 clients breaks down at 8..."
+
+Specific. Personal. Sounds like a real person with a real business. That's the power of identity context.
+
+</Tab>
+</Tabs>
+
+## The Identity Context Template
+
+Create a file called `who-am-i.md` in your project (or wherever you keep your context files). Here's the structure:
+
+```markdown
+# Who I Am
+
+## Role
+[One sentence: what you do and who you do it for]
+
+## Background
+[2-3 sentences: your experience, expertise, what makes you credible]
+
+## Business Model
+- Revenue sources: [how you make money]
+- Price range: [rough numbers — helps Claude calibrate advice]
+- Client type: [who pays you]
+- Team: [solo / contractors / small team]
+
+## Current Stage
+[Where your business is right now — early, growing, pivoting, established]
+
+## This Quarter's Priorities
+1. [Priority 1 — be specific]
+2. [Priority 2]
+3. [Priority 3]
+
+## Constraints
+- [Time constraints — e.g., "I work 30 hours/week by choice"]
+- [Budget constraints — e.g., "Bootstrap only, no outside funding"]
+- [Capacity constraints — e.g., "Can only take on 5 clients at a time"]
+
+## What Drains My Energy
+- [The tasks you dread or procrastinate on]
+- [The things that take too long]
+- [The stuff that falls through the cracks]
+
+## What I Want AI to Help With
+- [Be specific — not "everything" but actual tasks]
+```
+
+## Three Complete Examples
+
+<Tabs items={["Solo Consultant", "E-commerce Founder", "Creative Freelancer"]}>
+<Tab>
+
+```markdown
+# Who I Am
+
+## Role
+Independent operations consultant helping e-commerce brands
+($1M-$10M revenue) streamline their fulfillment and customer service.
+
+## Background
+15 years in operations — started at Amazon, then ran ops at two
+DTC startups. Went independent 6 years ago. Known for fixing
+broken fulfillment workflows and reducing customer service
+ticket volume.
+
+## Business Model
+- Revenue sources: project consulting ($15K-$40K/project),
+  monthly retainers ($3K-$5K/month for 2-3 clients)
+- Price range: $180K-$220K annual revenue target
+- Client type: DTC brand founders and ops directors
+- Team: solo with a part-time VA (10 hours/week)
+
+## Current Stage
+Established, but hitting a ceiling. Can't take more 1:1 clients
+without burning out. Exploring group programs and digital products.
+
+## This Quarter's Priorities
+1. Launch a group coaching program ($997, cohort of 10-15)
+2. Renew 3 expiring retainer clients
+3. Build a self-service ops audit tool (PDF + video)
+
+## Constraints
+- I work 35 hours/week — non-negotiable
+- No outside funding, everything self-funded
+- Can handle 4-5 active clients maximum at once
+
+## What Drains My Energy
+- Writing proposals (3-4 hours each, and I hate every minute)
+- Client follow-up emails pile up by Wednesday
+- Bookkeeping and invoicing at end of month
+- Research for new engagements eats into delivery time
+
+## What I Want AI to Help With
+- Draft proposals from templates + client brief
+- Process meeting notes into action items and follow-ups
+- Weekly planning and review
+- LinkedIn content (1-2 posts per week)
+```
+
+</Tab>
+<Tab>
+
+```markdown
+# Who I Am
+
+## Role
+Founder of a direct-to-consumer skincare brand focused on
+sensitive skin for women over 40.
+
+## Background
+Former beauty editor for 10 years. Started the brand after
+struggling to find products that worked for my own skin.
+Self-taught in e-commerce — built the Shopify store,
+run my own ads, handle customer service.
+
+## Business Model
+- Revenue sources: Shopify store (60%), Amazon (25%),
+  wholesale to 12 boutiques (15%)
+- Price range: $15K/month revenue, targeting $30K by year-end
+- Client type: Women 40-60, health-conscious, willing to pay
+  premium for clean ingredients
+- Team: solo + freelance designer + seasonal CS help
+
+## Current Stage
+18 months in. Product-market fit is solid (38% repeat purchase
+rate). Now need to scale without losing the personal touch
+that customers love.
+
+## This Quarter's Priorities
+1. Increase repeat purchase rate to 45% with email automation
+2. Launch holiday gift set by October
+3. Get into 5 new boutique retailers
+
+## Constraints
+- $2K/month marketing budget (need to be scrappy)
+- I do my own customer service — takes 8 hours/week
+- Can't afford to hire full-time for at least 6 months
+
+## What Drains My Energy
+- Social media content creation (6-8 hours/week)
+- Responding to customer emails individually
+- Figuring out email marketing sequences
+- Keeping inventory spreadsheets updated
+
+## What I Want AI to Help With
+- Batch-create social media captions and content calendars
+- Draft customer service response templates
+- Build email sequences for post-purchase and re-engagement
+- Analyze sales data and spot trends
+```
+
+</Tab>
+<Tab>
+
+```markdown
+# Who I Am
+
+## Role
+Freelance brand strategist and copywriter working with
+startups and small agencies.
+
+## Background
+12 years in marketing — agency-side for 7, then freelance.
+Specialize in brand positioning, messaging frameworks, and
+website copy. Have worked with 80+ brands across tech, food,
+and wellness.
+
+## Business Model
+- Revenue sources: retainer clients ($2K-$5K/month, 2-3 at a
+  time) + project work ($3K-$8K per project)
+- Price range: $120K-$150K annual target
+- Client type: seed-stage startups and boutique agencies
+  who need senior-level strategy without a full-time hire
+- Team: completely solo
+
+## Current Stage
+Transitioning from pure freelance to a productized service.
+Want to create a fixed-scope, fixed-price brand strategy
+package that I can sell repeatedly without custom scoping
+every time.
+
+## This Quarter's Priorities
+1. Package my brand strategy process into a $5K fixed offer
+2. Build a portfolio site with 5 detailed case studies
+3. Reduce time on client revisions by 50% through better
+   briefing process
+
+## Constraints
+- I don't work Fridays (4-day work week)
+- No more than 3 active client projects at once
+- I don't do ongoing social media management
+
+## What Drains My Energy
+- Scope creep on client projects (revisions that never end)
+- Context-switching between 3-4 different brands in a day
+- Writing my own marketing copy (cobbler's children!)
+- Admin: contracts, invoicing, scheduling
+
+## What I Want AI to Help With
+- Draft client proposals from brief to first version
+- Generate messaging options I can refine
+- Help me write my own website and LinkedIn content
+- Process client feedback into actionable revision lists
+```
+
+</Tab>
+</Tabs>
+
+## How to Use Your Identity File
+
+Once you've created your identity file, reference it in your CLAUDE.md:
+
+```markdown
+## Context Files
+- Read @who-am-i.md for my identity and business context
+```
+
+<Callout type="info">
+You can also point Claude at it directly in conversation:
+
+```
+Read @who-am-i.md — that's my background. Now help me
+[whatever you need].
+```
+</Callout>
+
+## Try It
+
+<Steps>
+<Step>
+### Pick a persona
+
+Pick the persona example above that's closest to your situation.
+</Step>
+<Step>
+### Customize it
+
+Copy it and replace every detail with your own.
+</Step>
+<Step>
+### Save it
+
+Save it as `who-am-i.md` in your project folder.
+</Step>
+<Step>
+### Test it
+
+Open Claude Code, point it at your file, and ask:
+
+```
+Read @who-am-i.md. Based on what you know about me,
+what are the three most impactful things you could
+help me with this week? Be specific to my business,
+not generic.
+```
+</Step>
+</Steps>
+
+If Claude's suggestions feel generic, your identity file needs more specifics. If they feel spot-on, you've nailed it.
+
+When you're ready, move on to **2.2: Company Context**.

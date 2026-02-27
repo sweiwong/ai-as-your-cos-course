@@ -1,0 +1,128 @@
+---
+title: "0.2: Download & Start"
+description: Download the course project and launch Claude Code in it. Five minutes to your first lesson.
+---
+
+**Time to complete:** 5 minutes | **Prerequisites:** Claude Code installed ([0.1](/docs/getting-started/installation))
+
+## Pick Your Download Method
+
+There are three ways to get the course files. Pick whichever feels most comfortable.
+
+<Tabs items={["One-Line Command (Recommended)", "Let Claude Do It", "Manual Download"]}>
+<Tab>
+
+### Option 1: One-Line Command
+
+Open your terminal and paste this single command:
+
+```bash
+cd ~/Documents && git clone https://github.com/sweiwong/ai-as-your-cos.git && cd ai-as-your-cos && claude "/start-1-1"
+```
+
+**What this does:** Downloads the course files to your Documents folder, moves into the project, and immediately launches Claude Code with the first lesson.
+
+That's it — you're in. Skip to the bottom of this page if you need the "How Claude Code Is Different" overview, otherwise you're already running Lesson 1.1.
+
+<Callout type="idea" title="Git not installed?">
+If you see an error about `git`, launch Claude Code anywhere by typing `claude`, then ask:
+
+```
+Help me install git on my computer
+```
+</Callout>
+
+</Tab>
+<Tab>
+
+### Option 2: Let Claude Do It
+
+If you'd rather not copy terminal commands, let Claude handle the whole thing.
+
+<Steps>
+<Step>
+Open your terminal and type `claude` to launch Claude Code
+</Step>
+<Step>
+Tell Claude:
+
+```
+Clone the course repo from https://github.com/sweiwong/ai-as-your-cos.git
+into my Documents folder, then open it
+```
+
+Claude will run the commands for you — just approve when it asks for permission.
+</Step>
+<Step>
+Once you're in the project folder, type `/start-1-1` to begin Module 1.
+</Step>
+</Steps>
+
+</Tab>
+<Tab>
+
+### Option 3: Manual Download
+
+If you prefer downloading a ZIP file:
+
+<Steps>
+<Step>
+Go to [github.com/sweiwong/ai-as-your-cos](https://github.com/sweiwong/ai-as-your-cos)
+</Step>
+<Step>
+Click the green **Code** button, then **Download ZIP**
+</Step>
+<Step>
+Extract the ZIP file to your Documents folder
+</Step>
+<Step>
+You should now have a folder at `~/Documents/ai-as-your-cos`
+</Step>
+</Steps>
+
+Then follow the "Open Claude Code from the Course Folder" section below.
+
+</Tab>
+</Tabs>
+
+## Open Claude Code from the Course Folder
+
+If you used Option 1, you're already running. For Options 2 and 3, you need to open Claude Code inside the course folder.
+
+**GUI method (easiest):**
+1. Open Finder and navigate to Documents → `ai-as-your-cos`
+2. Right-click the folder → **New Terminal at Folder** (or **Services → New Terminal at Folder**)
+3. Type `claude` and press Enter
+
+**Terminal method:**
+```bash
+cd ~/Documents/ai-as-your-cos
+claude
+```
+
+<Callout type="warn" title="This matters">
+**Claude only sees files in the folder where you launch it.** If you start Claude Code from your home directory, it won't see the course files. Always launch it from inside the `ai-as-your-cos` folder.
+</Callout>
+
+## Start Your First Lesson
+
+Once Claude Code is running inside the course folder, type:
+
+```
+/start-1-1
+```
+
+This launches the interactive exercises for Module 1, Lesson 1. Each lesson in this course has a `/start` command that sets up hands-on practice right in your terminal.
+
+## How Claude Code Is Different From ChatGPT
+
+If you're coming from ChatGPT or Claude.ai in a browser, here's the key shift:
+
+| | Browser Chatbot (ChatGPT, Claude.ai) | Claude Code |
+|---|---|---|
+| **File access** | You upload or paste text manually | Claude reads files directly from your computer |
+| **Memory** | Starts fresh every conversation | Remembers project context through CLAUDE.md |
+| **Scope** | One conversation at a time | Can work across multiple files at once |
+| **Real work** | Good for quick questions | Good for actual tasks in your business |
+
+You don't need to learn special syntax. You talk to Claude Code in plain English — just like briefing a colleague. The difference is that Claude Code can see your files, remember your preferences, and take action on your behalf.

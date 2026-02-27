@@ -1,0 +1,119 @@
+---
+title: "1.3: Working with Files"
+description: Use the @ symbol to reference files and folders. Learn five patterns for getting real work done.
+---
+
+**Run `/start-1-3` in Claude Code to begin the interactive exercises for this lesson.**
+
+## The @ Symbol
+
+The `@` symbol is how you point Claude at specific files or folders. Instead of describing what's in a file, you reference it directly and Claude reads it.
+
+| Syntax | What it does |
+|--------|-------------|
+| `@filename.md` | Reference a specific file |
+| `@folder/` | Reference an entire folder |
+| `@folder/file.md` | Reference a file in a subfolder |
+
+<Callout type="info">
+When you type `@` in Claude Code, it shows an autocomplete list of files in your project. You can start typing to filter. This is faster than remembering exact file paths.
+</Callout>
+
+## Five Patterns for Working With Files
+
+These are the core patterns you'll use over and over. Each one solves a different type of task.
+
+### Pattern 1: Single File → Extract
+
+Read one file and pull out what matters.
+
+```
+Read @meeting-notes.md and extract the action items into a new file called action-items.md
+```
+
+**Use cases:** Meeting notes, handoff documents, research papers, interview transcripts, long emails
+
+---
+
+### Pattern 2: Folder → Synthesize
+
+Read everything in a folder and find the patterns across files.
+
+```
+Look at all the files in @feedback/ and synthesize the top themes. What are customers saying most?
+```
+
+**Use cases:** Customer feedback, support tickets, survey responses, research notes, competitor analysis
+
+---
+
+### Pattern 3: Apply a Template
+
+Use one file as a template and another as the source material.
+
+```
+Create a weekly report from @this-week-notes.md following the format in @templates/weekly-report.md
+```
+
+**Use cases:** Weekly reports, client proposals, status updates, meeting agendas
+
+---
+
+### Pattern 4: Image → Analyze
+
+Paste an image directly into Claude Code with `Ctrl+V` (not `Cmd+V` on Mac — this is one case where Ctrl is correct even on Mac).
+
+Claude can analyze:
+- Screenshots of competitor websites
+- Photos of whiteboards
+- Charts and graphs
+- UI mockups and wireframes
+
+```
+[paste image with Ctrl+V]
+What's the key message in this chart? Summarize it in two sentences.
+```
+
+---
+
+### Pattern 5: Web → Research
+
+Ask Claude to search the web and bring back what it finds — no more juggling 30 browser tabs.
+
+```
+Search for best practices in loyalty program design for small businesses. Give me the top 5 takeaways.
+```
+
+Claude finds, reads, and synthesizes web content for you.
+
+## Combining Patterns
+
+The real power comes from combining patterns in a single prompt:
+
+```
+Read @client-notes.md, search for current trends in their industry, and create
+a briefing document following the format in @templates/briefing.md
+```
+
+This combines Pattern 1 (single file), Pattern 5 (web research), and Pattern 3 (apply template) in one request.
+
+## Best Practices
+
+| Do | Don't |
+|----|-------|
+| Be specific about what you want extracted | Say "look at this file" without saying what you need |
+| Tell Claude where to put the output | Leave it to guess whether to create a file or print to screen |
+| Use templates for consistent formatting | Describe your format from scratch every time |
+| Reference multiple files when you need synthesis | Ask about files one at a time when you need a cross-file view |
+
+<Callout type="idea">
+**The shift:** Instead of "let me read these files and figure out the pattern," you say "read these files and tell me the pattern." Claude does the reading; you do the thinking.
+</Callout>
+
+## Start the Exercises
+
+Switch to Claude Code and run:
+
+```
+/start-1-3
+```

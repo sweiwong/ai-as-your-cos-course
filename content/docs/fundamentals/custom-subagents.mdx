@@ -1,0 +1,108 @@
+---
+title: "1.6: Custom Sub-agents"
+description: Create permanent AI team members that live in your project and are always available when you need them.
+---
+
+**Run `/start-1-6` in Claude Code to begin the interactive exercises for this lesson.**
+
+## Agents vs. Sub-agents
+
+In the last lesson, you used agents — temporary workers that spin up for one task and then they're gone. Custom sub-agents are different: they're permanent. They live in your project folder and are always available, like having dedicated team members on staff.
+
+| | Agents (Lesson 1.5) | Custom Sub-agents (this lesson) |
+|---|---|---|
+| **Lifespan** | Temporary — exist for one task | Permanent — always available |
+| **Purpose** | Volume and batch processing | Wisdom, perspective, and feedback |
+| **Analogy** | "10 interns processing files" | "An advisory board reviewing your strategy" |
+| **Where they live** | Created on the fly in conversation | `.claude/agents/` folder in your project |
+
+## How Sub-agents Work
+
+Sub-agents are text files in the `.claude/agents/` folder. Each file defines a persona — who the sub-agent is, what they're good at, and how they communicate.
+
+When you reference a sub-agent by name, Claude reads that file and adopts the persona for the task.
+
+## Your Course Project Already Has Three
+
+The starter repo you cloned comes with three sub-agents in `.claude/agents/`:
+
+| Sub-agent | File | What they do |
+|-----------|------|-------------|
+| **Strategist** | `strategist.md` | Business strategy, frameworks, positioning options with tradeoffs |
+| **Editor** | `editor.md` | Writing quality — clarity, structure, tone matching, cutting filler |
+| **Researcher** | `researcher.md` | Market data, competitor analysis, structured findings with confidence levels |
+
+**To use them, just reference them by name:**
+
+```
+Have the Strategist review this market entry plan and give me three alternative approaches with tradeoffs
+```
+
+```
+Editor, review @proposal.md and tighten the language. Flag anything generic.
+```
+
+```
+Researcher, what's the current market size for corporate meditation apps? Include confidence levels.
+```
+
+## Creating Your Own Sub-agents
+
+You can create new sub-agents two ways:
+
+**Option 1: Ask Claude to create one**
+```
+Create a sub-agent at .claude/agents/skeptic.md with this persona:
+
+You are a skeptical investor who has seen hundreds of pitches fail.
+When reviewing any plan or proposal, you look for: unrealistic
+assumptions, missing market data, unclear unit economics, and
+wishful thinking. You're not negative — you're rigorous. Your
+feedback makes plans stronger.
+```
+
+**Option 2: Use the `/agents` command**
+
+Type `/agents` in Claude Code to see your current sub-agents and create new ones interactively.
+
+<Callout type="info">
+After creating a new sub-agent, restart Claude Code (`/quit` then `claude`) for it to appear in the `/agents` list.
+</Callout>
+
+## The Advisory Team Concept
+
+The most powerful use of sub-agents is building an advisory team — a group of personas you consult regularly for different perspectives on the same decision.
+
+```
+Get feedback from the Strategist, Editor, and Researcher on this quarterly plan.
+Then synthesize their input into a final recommendation.
+```
+
+Here are some advisory team ideas for different scenarios:
+
+| Scenario | Sub-agents to create |
+|----------|---------------------|
+| **Resume or job application** | Recruiter + Hiring Manager + Career Coach |
+| **Business idea validation** | Skeptical Investor + Target Customer + Realist Operator |
+| **Presentation review** | Busy Executive + Detail-Oriented Analyst + Skeptic |
+| **Writing review** | Editor + Target Reader + Harsh Critic |
+| **Big decision** | Risk-Averse Advisor + Opportunity-Focused Advisor + Pragmatist |
+
+## What Makes a Good Sub-agent File
+
+A strong sub-agent definition includes:
+
+1. **Role** — who they are and what perspective they bring
+2. **How they work** — what they look at, what files they reference
+3. **Output format** — how they structure their feedback
+4. **Quality bar** — what standard they hold work to
+
+Look at the existing sub-agents in `.claude/agents/` for good examples. The `editor.md` file includes a checklist. The `strategist.md` file includes a structured output format with options and tradeoffs.
+
+## Start the Exercises
+
+Switch to Claude Code and run:
+
+```
+/start-1-6
+```

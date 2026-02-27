@@ -1,0 +1,112 @@
+---
+title: "1.2: File Exploration & Visual Workspace"
+description: Set up your dual-pane workspace and learn how Claude Code explores files and folders.
+---
+
+**Run `/start-1-2` in Claude Code to begin the interactive exercises for this lesson.**
+
+## The Problem
+
+The terminal is great for talking to Claude — but you can't see your files. You're working blind. When Claude creates or edits a file, you have to ask it to show you the contents rather than just glancing at it.
+
+**The solution:** Use a visual editor alongside Claude Code. Left side = file explorer (see everything). Bottom panel = Claude Code terminal (work with everything).
+
+## Setting Up Your Editor
+
+<Tabs items={["Nimbalyst (Recommended)", "Cursor"]}>
+<Tab>
+
+### Nimbalyst
+
+Best for non-technical users. WYSIWYG markdown editing, built-in Claude Code terminal, and it shows the `.claude/` folder (where your agents and commands live).
+
+**Setup:**
+1. Download from [nimbalyst.com](https://nimbalyst.com) (free)
+2. Open the app and navigate to your `ai-as-your-cos` folder
+3. The built-in terminal is at the bottom — type `claude` to launch Claude Code
+
+| Feature | Details |
+|---------|---------|
+| WYSIWYG markdown | Edit `.md` files visually, no syntax to learn |
+| Claude Code | Built into the terminal panel |
+| `.claude/` folder | Visible in the file explorer |
+| Price | Free |
+
+</Tab>
+<Tab>
+
+### Cursor
+
+Best if you want Cursor's own AI features alongside Claude Code. It's built on VS Code, so it works with any VS Code extensions.
+
+**Setup:**
+1. Download from [cursor.com](https://cursor.com) (free)
+2. File → Open Folder → select your `ai-as-your-cos` folder
+3. Open the terminal panel (`Ctrl+backtick` or View → Terminal)
+4. Type `claude` in the terminal to launch Claude Code
+
+| Feature | Details |
+|---------|---------|
+| AI features | Cursor's own AI + Claude Code in terminal |
+| VS Code compatible | All extensions work |
+| `.claude/` folder | Visible in file explorer |
+| Price | Free |
+
+</Tab>
+</Tabs>
+
+## Exploring Files With Claude
+
+Once you have your editor open alongside Claude Code, try these prompts to explore the course project:
+
+<Cards>
+<Card title="See the file structure">
+```
+Show me the folder structure of this project. List the main folders and what each one contains.
+```
+</Card>
+<Card title="Summarize a folder">
+```
+What files are in the research/ folder? Give me a one-line summary of each.
+```
+</Card>
+<Card title="Read a specific file">
+```
+Read CLAUDE.md and tell me what project this is about.
+```
+</Card>
+</Cards>
+
+Claude reads the actual files on your computer — no uploading, no copy-pasting. You ask, it reads, it responds.
+
+## Markdown Files
+
+You'll see lots of `.md` files in the course project. Markdown is a simple text format that both humans and AI can read easily.
+
+- **In your editor:** Most editors preview markdown with formatting (headers, bold, bullet points)
+- **In Nimbalyst:** Markdown renders visually by default — what you see is what you get
+- **In Cursor:** Press `Cmd+Shift+V` (Mac) or `Ctrl+Shift+V` (Windows) to preview
+
+<Callout type="idea">
+Markdown is the universal language of AI tools. When Claude creates files for you, they'll usually be in markdown format — readable by you, readable by any other AI tool, and easy to share.
+</Callout>
+
+## Real-World Applications
+
+File exploration isn't just a learning exercise. This is one of the most practical things Claude Code does:
+
+| Scenario | What to ask Claude |
+|----------|-------------------|
+| **Inherited a project** at work | "Explore this folder and tell me what's here and how it's organized" |
+| **Messy Downloads folder** | "Look at ~/Downloads and categorize everything by file type" |
+| **Starting a new job** | "Read through this project folder and give me an orientation summary" |
+| **Client sent a folder** of files | "Summarize each file in this folder and tell me what needs my attention" |
+| **Brand assets** scattered everywhere | "Find all image and document files and organize them into a summary" |
+
+## Start the Exercises
+
+Switch to Claude Code and run:
+
+```
+/start-1-2
+```

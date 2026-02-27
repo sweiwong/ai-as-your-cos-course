@@ -1,0 +1,133 @@
+---
+title: "1.7: Project Memory (CLAUDE.md)"
+description: Set up CLAUDE.md so Claude remembers your business context, rules, and preferences — every single session.
+---
+
+**Run `/start-1-7` in Claude Code to begin the interactive exercises for this lesson.**
+
+## The Re-Explanation Problem
+
+Every time you start a new ChatGPT conversation, you start from zero. You have to explain who you are, what you're working on, and how you like things done — every single time. It's like briefing a new assistant from scratch every Monday morning.
+
+CLAUDE.md fixes this. It's a text file that lives in your project folder. Every time you launch Claude Code in that folder, it reads this file automatically — before you say anything. It's your project's permanent memory.
+
+<Callout type="idea">
+**Think of it as a constitution for your AI assistant.** Your CLAUDE.md sets the rules that always apply. If a prompt contradicts your CLAUDE.md, the CLAUDE.md wins — just like a constitution overrides regular legislation.
+</Callout>
+
+## Your Course Project Already Has One
+
+The `ai-as-your-cos` folder you cloned has a CLAUDE.md at the root. It tells Claude that you're a strategy consultant working on a wellness app market analysis for a client called Stillpoint. That's why Claude knows about the project without you explaining it each time.
+
+## What to Put In (and What to Leave Out)
+
+**Good things to include:**
+
+| Category | Example |
+|----------|---------|
+| Your role and business | "I'm a solo consultant specializing in ops for e-commerce brands" |
+| Communication style | "Write in a direct, warm tone. No jargon. No exclamation points." |
+| Audience profile | "My clients are DTC brand founders, 30-45, non-technical" |
+| Key business rules | "Never suggest discounting — my brand is premium" |
+| Quality standards | "Always ask before sending anything client-facing" |
+| Formatting defaults | "Use bullet points, not long paragraphs. Keep emails under 200 words." |
+
+**Things to leave out:**
+
+| Skip this | Why |
+|-----------|-----|
+| This week's tasks | Changes too often — say it in conversation instead |
+| API keys or passwords | Never put secrets in any file |
+| Detailed revenue numbers | Too sensitive for a project file |
+| Temporary instructions | CLAUDE.md is for stable rules |
+
+**The test:** *"Would I want Claude to know this six months from now?"* If yes, put it in CLAUDE.md. If no, say it in conversation.
+
+## Structure Template
+
+Here's a proven structure. You can ask Claude to create this file for you:
+
+```markdown
+# CLAUDE.md
+
+## Who I Am
+I'm a [your role]. I run [brief business description].
+
+## My Business
+- Business model: [how you make money]
+- Clients/customers: [who you serve]
+- Current focus: [what you're working on this quarter]
+
+## Communication Rules
+- Tone: [direct / warm / professional]
+- Format: [bullets, short paragraphs, your preference]
+- Length: [concise / thorough]
+- Audience: [who usually reads what Claude writes for you]
+
+## Non-Negotiables
+- Always ask before making changes to client-facing content
+- Never assume — ask clarifying questions when unclear
+- [Add your own rules here]
+
+## Quality Checklist
+Before delivering any output, verify:
+- [ ] Matches my tone and style
+- [ ] Accurate — no made-up facts
+- [ ] Actionable — clear next steps
+- [ ] Appropriate length
+```
+
+## Temporary Rules With the # Symbol
+
+Sometimes you want a rule for just this session — not permanently. Use the `#` symbol at the Claude Code prompt:
+
+```
+# For this conversation, write all output in British English
+```
+
+This rule applies only to the current session. It's gone when you restart Claude Code.
+
+<Callout type="info">
+**The workflow:** Experiment with `#` rules in conversation. When you find one you want to keep permanently, add it to your CLAUDE.md.
+</Callout>
+
+## The CLAUDE.md Hierarchy
+
+Claude Code checks for CLAUDE.md files at multiple levels, and they stack:
+
+| Level | Location | Scope |
+|-------|----------|-------|
+| **Global** | `~/.claude/CLAUDE.md` | Rules that apply to everything you do with Claude Code |
+| **Project** | `/your-project/CLAUDE.md` | Rules for one specific project |
+| **Directory** | `/your-project/subfolder/CLAUDE.md` | Rules for a specific area within a project |
+| **Local** | `CLAUDE.local.md` | Personal rules, git-ignored — won't be shared if you share the project |
+
+<Callout type="info">
+**For most people, you'll use two levels:**
+1. A **global** CLAUDE.md with your identity and universal style preferences
+2. A **project** CLAUDE.md for each major project or area of your business
+</Callout>
+
+## Best Practices
+
+| Do | Don't |
+|----|-------|
+| Be specific: "Never use exclamation points" | Be vague: "Keep it professional" |
+| Use imperative language: "ALWAYS cite sources" | Use suggestions: "It might be nice to cite sources" |
+| Provide context: "No discounting — my brand is premium" | Give rules without reasons |
+| Keep it scannable with headers and bullets | Write it as a wall of text |
+| Review quarterly, remove what's stale | Let it grow forever without pruning |
+
+**Target length:** 50-200 lines. Enough to be useful, short enough that Claude processes it quickly.
+
+<Callout type="idea">
+**Signal:** If you find yourself correcting Claude on the same thing more than twice, that correction should be in your CLAUDE.md.
+</Callout>
+
+## Start the Exercises
+
+Switch to Claude Code and run:
+
+```
+/start-1-7
+```

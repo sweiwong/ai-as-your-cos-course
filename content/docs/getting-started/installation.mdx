@@ -1,0 +1,132 @@
+---
+title: "0.1: Installation"
+description: time to complete 15 minutes. prerequisites - claude pro subscription 
+---
+
+## Prerequisites
+
+| Requirement | Details |
+|---|---|
+| **Claude Subscription** | Claude Pro ($20/month) or Claude Max. Free tier NOT supported. Sign up at [claude.ai](https://claude.ai) |
+| **Node.js** | Version 18 or higher required. Download from [nodejs.org](https://nodejs.org) |
+| **Operating System** | macOS or Windows 10+ |
+
+This takes about 15 minutes. If you hit a snag, there's a troubleshooting section at the bottom.
+
+## Step 1: How to Open Your Terminal
+
+All the commands in this guide need to be typed into your Terminal (also called command line). Here's how to open it:
+
+**Mac:**
+1. Press `Cmd + Space` to open Spotlight
+2. Type "Terminal"
+3. Press Enter
+
+**Windows:**
+1. Press the Windows key
+2. Type "PowerShell"
+3. Press Enter
+
+You'll see a window with a blinking cursor — this is where you'll type commands.
+
+## Step 2: Quick Installation
+
+### Check Node.js Version
+
+Open your terminal and type this command, then press Enter:
+```bash
+node --version
+```
+
+If you see `v18.0.0` or higher, proceed to installation. Otherwise, install Node.js first.
+
+### Install Node.js (If Needed)
+
+**Recommended:** Download the LTS version from [nodejs.org](https://nodejs.org)
+
+**Using Package Managers:**
+
+| Platform | Command |
+|---|---|
+| macOS | `brew install node` |
+| Windows | `choco install nodejs` |
+
+<Callout type="warning">
+After installing Node.js, completely close your terminal window and open a new one. This refreshes your system's PATH so it recognizes the `node` command.
+</Callout>
+
+## Step 3: Install Claude Code
+
+In your terminal, run this command:
+
+**Mac:**
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+**Windows:**
+```powershell
+irm https://claude.ai/install.ps1 | iex
+```
+
+Wait for the installation to complete. You'll see a success message when it's done.
+
+## Step 4: Verify Claude Code Is Installed
+
+Run this command:
+
+```bash
+claude --version
+```
+
+You should see a version number. If you do — Claude Code is installed.
+If you see `command not found`, completely close your terminal window and open a new one, then try again.
+
+## Step 5: Sign In
+
+Launch Claude Code by typing this into your Terminal and press Enter:
+
+```bash
+claude
+```
+
+The first time you run it, Claude Code will ask you to sign in:
+
+1. Select **"Claude account with subscription"** when prompted
+2. A browser window will open automatically
+3. Sign in with your Claude Pro or Max account
+4. Come back to the Terminal — you should see Claude Code ready to go
+
+Once signed in, type this inside Claude Code to verify everything is healthy:
+
+```
+/doctor
+```
+This verifies:
+- Installation integrity
+- Active subscription
+- System configuration
+- Common issues
+
+This runs a quick health check. If everything is green, you're all set.
+
+## Troubleshooting
+
+| Problem | Solution |
+|---|---|
+| `node: command not found` | Restart your terminal after installing Node.js. If still failing, reinstall from [nodejs.org](https://nodejs.org) |
+| `claude: command not found` | Restart your terminal after installing Claude Code. Try running the install command again |
+| Node version is below 18 | Go to [nodejs.org](https://nodejs.org) and install the latest LTS version |
+| Browser doesn't open for sign-in | Copy the URL shown in the terminal and paste it into your browser manually |
+| `/doctor` shows errors | Run the install command again to update Claude Code to the latest version |
+| "No subscription found" error | Make sure you have a Claude Pro ($20/mo) or Max subscription at [claude.ai](https://claude.ai) |
+
+## Try It
+
+Once Claude Code is running and you've signed in, try asking it something simple to confirm it works:
+
+```
+What day of the week is it today?
+```
+
+If Claude responds — congratulations, you're set up. Move on to **0.2: Start & Clone** to get your first real project going.

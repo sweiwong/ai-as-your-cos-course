@@ -1,0 +1,149 @@
+---
+title: "1.4: Commands & Navigation"
+description: Slash commands, keyboard shortcuts, input modes, and the essential controls for working efficiently in Claude Code.
+---
+
+**Run `/start-1-4` in Claude Code to begin the interactive exercises for this lesson.**
+
+## Plan First, Then Execute
+
+This is the single most important workflow in Claude Code — especially when you're starting out.
+
+Type **`/plan`** to enter Plan mode. Claude will show you exactly what it intends to do *before* it does anything. You review the plan, approve it, and then Claude executes. (You can also press **Shift+Tab** to cycle between modes.)
+
+**Why this matters:** Without Plan mode, Claude just starts making changes. That's fine once you're experienced, but when you're learning, you want to see the roadmap before the car starts moving.
+
+<Callout type="warn" title="The golden rule">
+**When in doubt, use Plan mode.** You can always switch to a faster mode later. You can never undo changes you didn't understand.
+</Callout>
+
+### The Three Modes (`/plan`, `/edit`, `/auto-accept` — or Shift+Tab to cycle)
+
+| Mode | What Claude does | When to use it |
+|------|-----------------|----------------|
+| **Plan** | Shows a plan first, waits for your approval, then executes | Complex tasks, anything you want to understand before it happens |
+| **Edit** (default) | Asks permission before each individual file change | Learning, being careful with each step |
+| **Auto-accept** | Makes changes without asking | Speed, simple tasks you trust completely |
+
+### The Plan → Execute Workflow
+
+<Steps>
+<Step>
+Type **`/plan`** to switch to Plan mode
+</Step>
+<Step>
+Describe what you want — for example: "Reorganize my research files by competitor"
+</Step>
+<Step>
+Claude shows you a step-by-step plan: what it will create, move, edit, and delete
+</Step>
+<Step>
+You review the plan. If it looks right, tell Claude to go ahead. If not, ask it to adjust.
+</Step>
+</Steps>
+
+Think of it like a contractor showing you the blueprint before starting construction. You wouldn't let someone start knocking down walls without seeing the plan first.
+
+---
+
+## Slash Commands
+
+Slash commands are shortcuts that start with `/`. Type them at the Claude Code prompt to control your session. Here are the most useful ones:
+
+### Session Management
+
+| Command | What it does |
+|---------|-------------|
+| `/clear` | Start a fresh conversation (keeps your files) |
+| `/compact` | Compress the conversation to save context space |
+| `/resume` | Pick up where you left off after closing Claude Code |
+
+### Models & Usage
+
+| Command | What it does |
+|---------|-------------|
+| `/model` | Switch between models — **Sonnet** (fast, good for most tasks) and **Opus** (slower, better for complex reasoning) |
+| `/usage` | See how much of your usage limit you've consumed |
+| `/cost` | See the cost of your current session |
+
+### Context & Files
+
+| Command | What it does |
+|---------|-------------|
+| `/context` | See what Claude currently knows about (files, CLAUDE.md, etc.) |
+| `/add-dir` | Add another folder for Claude to see |
+| `/init` | Create a CLAUDE.md file for your project |
+| `/memory` | View and edit your project memory |
+
+### Agents & Permissions
+
+| Command | What it does |
+|---------|-------------|
+| `/agents` | See available sub-agents in your project |
+| `/permissions` | Manage what Claude can do without asking |
+
+### Configuration
+
+| Command | What it does |
+|---------|-------------|
+| `/config` | Open settings |
+| `/doctor` | Diagnose common issues |
+| `/terminal-setup` | Set up terminal integration |
+
+### Custom Slash Commands
+
+Files in your `.claude/commands/` folder become slash commands. That's how the `/start-1-1` commands in this course work — they're just text files that Claude reads as instructions.
+
+After adding a new command file, restart Claude Code to pick it up.
+
+## Essential Keyboard Shortcuts
+
+### Escape to Interrupt
+
+Press **Escape** to stop Claude mid-response. Useful when Claude is going in the wrong direction or you've seen enough.
+
+### Rewind (Esc × 2)
+
+Press **Escape twice quickly** to rewind. This gives you two options:
+
+1. **Reset conversation only** — undo the last exchange but keep any file changes
+2. **Reset conversation AND undo file changes** — like time travel, restoring files to before the last exchange
+
+<Callout type="idea">
+Rewind is one of the most useful features. Made a mistake? Asked the wrong question? Claude went off track? Just press Escape twice and try again.
+</Callout>
+
+### Other Shortcuts
+
+| Shortcut | What it does |
+|----------|-------------|
+| **Escape** | Stop Claude mid-response |
+| **Esc × 2** | Rewind (undo last exchange) |
+| **Shift+Tab** | Cycle through input modes |
+| **Ctrl+backtick** | Toggle terminal in your editor |
+| **Ctrl+V** | Paste images into Claude Code |
+
+## Think Keywords
+
+When you need Claude to reason more carefully, add a "think" keyword to your prompt:
+
+| Keyword | What happens |
+|---------|-------------|
+| `think` | Normal thinking — Claude pauses to reason before answering |
+| `think harder` | Deeper analysis — for problems with multiple angles |
+| `ultrathink` | Maximum reasoning power — for the most complex tasks |
+
+You'll see a thinking indicator while Claude reasons. `ultrathink` shows a rainbow indicator — that's how you know it's working hard.
+
+```
+Think harder about the best way to organize my client files.
+Consider how I'll need to find things six months from now.
+```
+
+## Start the Exercises
+
+Switch to Claude Code and run:
+
+```
+/start-1-4
+```

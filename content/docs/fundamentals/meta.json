@@ -1,0 +1,12 @@
+{
+  "title": "Module 1: Fundamentals",
+  "pages": [
+    "course-intro",
+    "visual-workspace",
+    "working-with-files",
+    "commands-navigation",
+    "agents",
+    "custom-subagents",
+    "project-memory"
+  ]
+}

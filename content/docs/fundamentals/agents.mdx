@@ -1,0 +1,143 @@
+---
+title: "1.5: Agents"
+description: Run multiple Claude instances in parallel — like cloning yourself to get more done at once.
+---
+
+**Run `/start-1-5` in Claude Code to begin the interactive exercises for this lesson.**
+
+## What Are Agents?
+
+So far, you've been talking to one Claude — ask a question, get an answer, ask another question. That works, but it's sequential. One thing at a time.
+
+Agents change this. When you ask Claude to use agents, it spins up multiple independent instances that work at the same time. Each agent:
+
+- Gets its own task
+- Works independently (agents can't see what other agents are doing)
+- Reports results back to the main session
+- Runs in parallel with the other agents
+
+<Callout type="idea">
+**Real-world analogy:** You need four competitor profiles before a strategy meeting. Instead of writing them one at a time (an hour), you hand each one to a different team member and they all work simultaneously (fifteen minutes).
+</Callout>
+
+## Sequential vs. Parallel
+
+| Approach | 10 documents to summarize | Time |
+|----------|--------------------------|------|
+| **Sequential** (no agents) | Summarize one, then the next, then the next... | ~50 minutes |
+| **Parallel** (with agents) | Summarize all 10 at once | ~5 minutes |
+
+The time savings are real. Agents are one of the biggest productivity multipliers in Claude Code.
+
+## When to Use Agents
+
+**Agents are great for:**
+
+| Use Case | Example |
+|----------|---------|
+| Batch processing | Summarize 10 documents at once |
+| Parallel research | Research 5 competitors simultaneously |
+| Multiple perspectives | Get strategist, editor, and devil's advocate views on the same document |
+| Document generation | Create proposals for multiple clients at once |
+| Time-sensitive work | Morning prep that would otherwise take an hour |
+
+**Skip agents when:**
+
+| Situation | Why |
+|-----------|-----|
+| Single, simple task | One Claude is enough — agents add overhead |
+| Tasks that depend on each other | Agent 2 can't use Agent 1's results mid-task |
+| Quick questions | "What time is it in Tokyo?" doesn't need parallel workers |
+| Context-heavy work | Each agent starts fresh without the conversation history |
+
+## Four Ways to Prompt for Agents
+
+<Tabs items={["Explicit", "Implicit", "Specialized Roles", "Let Claude Decide"]}>
+<Tab>
+
+**Be explicit about the number:**
+
+```
+Create 3 agents to do the following:
+- Agent 1: Read @client-a-notes.md and draft a project update email
+- Agent 2: Read @client-b-notes.md and draft a project update email
+- Agent 3: Read @client-c-notes.md and draft a project update email
+
+After all three are done, compile the key themes across all clients.
+```
+
+</Tab>
+<Tab>
+
+**Describe the work and let Claude parallelize:**
+
+```
+I have 8 meeting transcripts in the /meetings/ folder.
+Process all of them in parallel — summarize each one and
+extract action items. Then compile a master action list.
+```
+
+</Tab>
+<Tab>
+
+**Assign different roles to different agents:**
+
+```
+I need help preparing a client proposal. Launch 3 agents
+with different perspectives:
+
+Agent 1 (Researcher): Look at @client-brief.md and research
+what similar companies in their industry are doing.
+
+Agent 2 (Strategist): Read @client-brief.md and outline
+3 possible approaches we could propose.
+
+Agent 3 (Writer): Draft the executive summary based on
+@client-brief.md.
+
+Then synthesize all three into a coherent proposal outline.
+```
+
+</Tab>
+<Tab>
+
+**Just describe the goal:**
+
+```
+Analyze the competitive landscape for Stillpoint. There are
+four competitor profiles in the research/ folder. Give me a
+comprehensive view that I can use for a board presentation.
+```
+
+Claude decides whether to use agents and how many based on the task.
+
+</Tab>
+</Tabs>
+
+## Orchestration Patterns
+
+Here are five common ways to structure agent work:
+
+| Pattern | What happens | Example |
+|---------|-------------|---------|
+| **Fan out** | Same task, many files | Summarize each file in a folder |
+| **Specialized roles** | Different analysis types on the same input | Strategist + editor + critic review a proposal |
+| **Parallel research** | Same question about different subjects | Research 4 competitors simultaneously |
+| **Batch generation** | Create similar documents with different details | Draft emails for 6 clients |
+| **Validation pipeline** | One agent creates, another reviews | Draft a report, then have it fact-checked |
+
+## Always Include Synthesis
+
+<Callout type="warn" title="Key rule">
+**Always ask for synthesis in your prompt.** Without it, you get raw outputs from each agent with no summary. Add a line like: "After all agents finish, synthesize the key findings into a single summary."
+</Callout>
+
+Agents don't talk to each other. They don't share results mid-task. Claude compiles everything after they finish — but only if you ask for it.
+
+## Start the Exercises
+
+Switch to Claude Code and run:
+
+```
+/start-1-5
+```

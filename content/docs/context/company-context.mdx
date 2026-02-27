@@ -1,0 +1,270 @@
+---
+title: "2.2: Company Context"
+description: Capture your business details in a structured file so Claude can make informed recommendations — not guesses.
+---
+
+## Overview
+
+Your identity file (Lesson 2.1) tells Claude who you *are*. Your company context file tells Claude what your business *is* — what you sell, who you serve, how you make money, and what you're working on right now.
+
+This matters because most bad AI output comes from missing context. When Claude doesn't know your pricing model, your customer profile, or your current priorities, it fills in the blanks with assumptions. Those assumptions are usually generic and wrong.
+
+A good company context file eliminates the guessing. Claude stops giving you advice that sounds like a business textbook and starts giving you advice that sounds like it comes from someone who actually knows your business.
+
+## What You'll Learn
+
+- What belongs in a company context file
+- How much detail is "enough" (without overloading it)
+- A complete worked example you can adapt
+- How to keep it current
+
+## What to Include
+
+Your company context file should answer the questions that a smart new hire would need answered in their first week. Here's the structure:
+
+```markdown
+# Company Context
+
+## What We Do
+[One paragraph: what you sell and the problem it solves]
+
+## Who We Serve
+[Your ideal customer — be specific about demographics,
+situation, and what they care about]
+
+## How We Make Money
+[Revenue model: pricing, packages, average deal size]
+
+## Current Offers
+[List your products, services, or packages with prices]
+
+## Competitive Positioning
+[How you're different from alternatives — what you do
+that others don't, or won't]
+
+## Current Projects & Priorities
+[What you're actively working on right now]
+
+## Key Metrics
+[The numbers you track to know if things are going well]
+
+## Important Context
+[Anything else Claude should know — partnerships,
+seasonal patterns, upcoming changes]
+```
+
+## How Much Detail Is Enough?
+
+This is the most common question. Here's the rule of thumb:
+
+| Too Little | Just Right | Too Much |
+|---|---|---|
+| "I'm a consultant" | "I'm an ops consultant for e-commerce brands ($1M-$10M), focusing on fulfillment and customer service systems" | Three paragraphs about your origin story and career journey |
+| "I have some clients" | "3 retainer clients at $4K/month + 2 active projects at $15K each" | Complete client list with contact details and contract terms |
+| "We're growing" | "Revenue: $15K/month, targeting $25K by Q4. Repeat purchase rate: 38%." | Full P&L statement and bank balance |
+
+<Callout type="idea">
+**The sweet spot:** Enough detail that Claude could write a one-page executive summary of your business that you'd be proud of. Not so much that the file becomes a novel.
+
+**Target length:** 50-100 lines. You can always add more later.
+</Callout>
+
+## Template and Complete Example
+
+<Tabs items={["Template", "Complete Example"]}>
+<Tab>
+
+Here's the template structure for your company context file. Save this as `company-context.md`:
+
+```markdown
+# Company Context
+
+## What We Do
+[One paragraph: what you sell and the problem it solves]
+
+## Who We Serve
+[Your ideal customer — be specific about demographics,
+situation, and what they care about]
+
+## How We Make Money
+[Revenue model: pricing, packages, average deal size]
+
+## Current Offers
+[List your products, services, or packages with prices]
+
+## Competitive Positioning
+[How you're different from alternatives — what you do
+that others don't, or won't]
+
+## Current Projects & Priorities
+[What you're actively working on right now]
+
+## Key Metrics
+[The numbers you track to know if things are going well]
+
+## Important Context
+[Anything else Claude should know — partnerships,
+seasonal patterns, upcoming changes]
+```
+
+</Tab>
+<Tab>
+
+Here's what a finished company context file looks like for a solo consultant:
+
+```markdown
+# Company Context
+
+## What We Do
+We help e-commerce brands ($1M-$10M revenue) fix their
+operations — specifically fulfillment workflows and customer
+service systems. We find the bottlenecks, design better
+processes, and help the team implement them.
+
+## Who We Serve
+Our ideal client is a DTC brand founder or ops director who:
+- Has a working product and steady revenue
+- Is growing but feels like "everything is held together
+  with duct tape"
+- Needs senior-level ops thinking without hiring a
+  full-time VP of Operations
+- Values efficiency and clear communication
+- Budget: $15K-$40K for a project engagement
+
+We don't work with pre-revenue startups or companies
+over $10M (they need a full-time ops team, not a consultant).
+
+## How We Make Money
+Two revenue streams:
+1. **Project consulting:** $15K-$40K per engagement,
+   typically 6-12 weeks. This is 70% of revenue.
+2. **Monthly retainers:** $3K-$5K/month for ongoing ops
+   support. Usually 2-3 retainer clients at a time.
+
+Average annual revenue: $180K-$220K.
+Target for this year: $220K.
+
+## Current Offers
+| Offer | Price | Duration | What's Included |
+|---|---|---|---|
+| Ops Audit | $5K | 2 weeks | Full review of fulfillment + CS workflows, prioritized recommendations report |
+| Implementation Project | $15K-$40K | 6-12 weeks | Audit + hands-on process redesign + team training |
+| Retainer | $3K-$5K/mo | Ongoing | Weekly check-ins, ad-hoc ops support, quarterly reviews |
+| Group Coaching (NEW) | $997 | 8 weeks | Cohort of 10-15 founders, weekly sessions, templates |
+
+## Competitive Positioning
+- Unlike agencies: I do the work myself (no junior consultants)
+- Unlike full-time hires: fractional, so they get senior
+  expertise at a fraction of the cost
+- Unlike generic business coaches: deep specialization in
+  e-commerce operations specifically
+- My edge: I've been in-house at Amazon and two DTC startups,
+  so I know what works at different stages
+
+## Current Projects & Priorities
+1. **Client: Bloom Beauty** — Retainer ($4K/mo). Redesigning
+   their returns process. On track.
+2. **Client: Peak Outdoors** — Project ($25K). Fulfillment
+   audit and 3PL transition. Wrapping up in 3 weeks.
+3. **Group coaching program** — Building out curriculum and
+   marketing page. Launch target: March 15.
+4. **Self-service audit tool** — PDF workbook + video guide
+   version of my ops audit. Early planning stage.
+
+## Key Metrics I Track
+- Monthly revenue (target: $18K+)
+- Active client count (sweet spot: 4-5)
+- Proposal-to-close rate (currently ~40%)
+- Client satisfaction (informal — referral rate is my proxy)
+- Hours worked per week (cap: 35)
+
+## Important Context
+- I don't work Wednesdays (that's my "CEO day" for business
+  development and planning)
+- Tax season (March-April) is always slow for new clients
+- Most of my clients come from referrals and LinkedIn
+- I'm exploring moving from pure services to a mix of
+  services + digital products this year
+```
+
+</Tab>
+</Tabs>
+
+## Keeping It Current
+
+Your company context should be a living document, but not one you update daily. Here's a cadence that works:
+
+| When | What to Update |
+|---|---|
+| **Monthly** | Current projects and priorities |
+| **Quarterly** | Key metrics, offers (if pricing changed), strategic direction |
+| **As needed** | New offers, major client changes, business model shifts |
+
+**Pro tip:** Add a "Last updated" date at the top of the file. If it's more than 3 months old, schedule 15 minutes to refresh it.
+
+## Connecting It to CLAUDE.md
+
+Reference your company context file in your CLAUDE.md so Claude loads it automatically:
+
+<Tabs items={["Automatic", "Manual"]}>
+<Tab>
+
+Add this to your CLAUDE.md and Claude will load the context at the start of every session:
+
+```markdown
+## Context Files
+- Read @who-am-i.md for my identity and background
+- Read @company-context.md for business details and current priorities
+```
+
+</Tab>
+<Tab>
+
+Load it manually when you need it:
+
+```
+Read @company-context.md — I need you to understand my
+business before we work on this.
+```
+
+</Tab>
+</Tabs>
+
+## Try It
+
+<Steps>
+<Step>
+### Copy the template
+
+Copy the template at the top of this lesson.
+</Step>
+<Step>
+### Fill it in
+
+Fill it in with your own business details (aim for 50-100 lines).
+</Step>
+<Step>
+### Save it
+
+Save it as `company-context.md` in your project folder.
+</Step>
+<Step>
+### Test it
+
+Test it with this prompt:
+
+```
+Read @company-context.md.
+
+Based on my business context, draft a one-paragraph pitch
+I could use when someone asks "What do you do?" at a
+networking event. Make it sound natural, not salesy.
+Then tell me: what's the one thing you notice about my
+business that I might be undervaluing?
+```
+</Step>
+</Steps>
+
+If the pitch sounds like it could describe any business, add more specifics to your context file. If it sounds like *your* business, you're in good shape.
+
+When you're ready, move on to **2.3: Personal Style Guide**.
