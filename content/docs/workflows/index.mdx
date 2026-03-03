@@ -1,0 +1,96 @@
+---
+title: "3.0: What Are Workflows?"
+description: Turn your best prompts into reusable commands you can run in seconds — every day, every week, without retyping anything.
+---
+
+## The Copy-Paste Problem
+
+You've built some powerful things in Modules 1 and 2. You have an identity file that tells Claude who you are. A company context file that explains your business. A style guide that makes Claude sound like you. Agents and sub-agents that can do parallel work.
+
+But here's what actually happens on a Monday morning:
+
+You open Claude Code, and you type some version of the same prompt you typed last Monday. You re-explain that you want a weekly plan. You re-paste the same instructions about format. You re-reference the same files. Every single time.
+
+That's the copy-paste problem. You built great tools in Modules 1-2, but you're still manually assembling them every session.
+
+## What Is a Workflow?
+
+A workflow is a saved prompt that you can run with a single command. Instead of retyping instructions, you type `/weekly-plan` and Claude does the rest.
+
+| | Ad-hoc prompts | Custom commands |
+|---|---|---|
+| **How you start** | Type or paste your full prompt every time | Type `/command-name` and hit enter |
+| **Context** | You remember to reference the right files (or forget) | The command references files automatically |
+| **Consistency** | Different every time, depending on your mood and memory | Same high-quality output, every time |
+| **Improvement** | Hard to iterate — which version of the prompt was best? | Edit one file, every future run improves |
+| **Sharing** | Copy-paste to a colleague and hope they adapt it | Share the command file — they run the same workflow |
+
+## How Custom Commands Work
+
+Custom commands are just markdown files saved in a special folder. That's it. No coding, no configuration, no plugins.
+
+<Steps>
+<Step>
+
+Create a folder called `.claude/commands/` inside your project
+
+</Step>
+<Step>
+
+Create a markdown file inside it — the filename becomes the command name. For example, `weekly-plan.md` becomes `/weekly-plan`
+
+</Step>
+<Step>
+
+Write your prompt instructions inside the file — plain English, just like you'd type into Claude Code
+
+</Step>
+<Step>
+
+Restart Claude Code. Your new command appears when you type `/`
+
+</Step>
+</Steps>
+
+<Callout type="info">
+The `.claude/commands/` folder lives inside your project, not somewhere buried in system settings. You can see it, edit it, and share it like any other file.
+</Callout>
+
+## What You Built in Modules 1-2
+
+Every skill you learned so far becomes an ingredient in your workflows:
+
+| Module | Skill | How workflows use it |
+|---|---|---|
+| **Module 1** | `@` file references | Commands reference your context files automatically |
+| **Module 1** | Plan mode | Complex workflows use plan mode internally for multi-step tasks |
+| **Module 1** | Agents | Workflows can spin up parallel agents for research |
+| **Module 1** | Sub-agents | Workflows can assign specialized roles (editor, strategist, researcher) |
+| **Module 1** | CLAUDE.md | Your project memory shapes how every command runs |
+| **Module 2** | Identity file | Commands know who you are without you re-explaining |
+| **Module 2** | Company context | Commands reference your business details automatically |
+| **Module 2** | Style guide | Every output sounds like you — no tone instructions needed |
+
+Workflows don't replace what you learned. They **combine** everything into one-command routines.
+
+## The Three Workflows You'll Build
+
+| Lesson | Workflow | What it does | Difficulty |
+|---|---|---|---|
+| **3.1** | Weekly Planning | Plan your week in 60 seconds every Monday | Beginner |
+| **3.2** | Meeting Prep | One-command briefing for any meeting | Intermediate |
+| **3.3** | Client Research & Outreach | Full research + personalized outreach draft | Advanced |
+
+Each lesson builds on the last. By the end, you'll have a library of commands that handle real work — the kind of tasks that used to eat up your mornings.
+
+## Try It
+
+Before building your own commands, take a look at what a command file actually looks like. The course project already has some built-in commands (the `/start-X-X` commands you've been using).
+
+```
+Open the .claude/commands/ folder in your project and read one of the files inside. Notice that it's just plain text instructions — the same kind of prompt you'd type into Claude Code manually.
+```
+
+That's all a workflow is: a prompt you only have to write once.
+
+When you're ready, move on to **3.1: Weekly Planning** to build your first command.

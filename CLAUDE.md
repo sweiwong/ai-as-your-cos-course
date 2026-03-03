@@ -45,9 +45,9 @@ npm run types:check  # Full type check: fumadocs-mdx + next + tsc --noEmit
 | File | Role |
 |------|------|
 | `lib/source.ts` | Fumadocs source loader — `getPage()`, `getPages()`, `getLLMText()` |
-| `lib/layout.shared.tsx` | Shared nav config: site title, GitHub repo links (`sweiwong/ai-as-your-cos`, branch `main`) |
+| `lib/layout.shared.tsx` | Shared nav config: site title, GitHub repo links (`sweiwong/ai-as-your-cos-course`, branch `main`) |
 | `source.config.ts` | Fumadocs content schema and MDX options |
-| `app/global.css` | Theme colors (teal/cyan CSS variables), JetBrains Mono font |
+| `app/global.css` | Theme colors (warm gold/plum palette), light + dark mode overrides, JetBrains Mono font |
 | `content/docs/meta.json` | Top-level navigation structure |
 
 ## Content Guidelines

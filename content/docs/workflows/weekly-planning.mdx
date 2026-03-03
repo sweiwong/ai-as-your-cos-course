@@ -1,0 +1,192 @@
+---
+title: "3.1: Weekly Planning"
+description: Build a /weekly-plan command that reads your context files and produces a focused weekly plan in 60 seconds.
+---
+
+## The Monday Morning Problem
+
+Every Monday starts the same way. You sit down with coffee, open your calendar, scan your to-do list, try to remember what happened last week, and figure out what matters this week. Thirty minutes later, you have a rough plan — if you're lucky.
+
+The problem isn't that you don't know how to plan. You've been doing it for years. The problem is that it's manual, scattered, and easy to skip when the week hits hard.
+
+What if you could type one command and get a focused plan in 60 seconds — one that already knows your quarterly goals, your role, and your priorities?
+
+## Before and After
+
+<Tabs items={["Before: Manual Planning", "After: /weekly-plan"]}>
+<Tab>
+
+**The Monday routine without a workflow:**
+
+1. Open calendar — scan the week's meetings
+2. Check last week's to-do list — what carried over?
+3. Try to remember quarterly goals (open the doc somewhere...)
+4. Decide what matters this week
+5. Write it down in a notebook or app
+6. Get interrupted. Lose the thread. Start over.
+
+**Time:** 20-30 minutes on a good day. Often skipped entirely.
+
+</Tab>
+<Tab>
+
+**The Monday routine with `/weekly-plan`:**
+
+```
+/weekly-plan
+```
+
+Claude reads your identity, company context, and any notes you've saved. It produces:
+
+- **Top 3 priorities** — tied to your quarterly goals
+- **Suggested time blocks** — based on what's on your plate
+- **One thing to say no to** — the low-value task draining your week
+- **Last week's wins and carryovers** — so nothing falls through the cracks
+
+**Time:** 60 seconds. Runs the same way every Monday.
+
+</Tab>
+</Tabs>
+
+## The Command Template
+
+<Tabs items={["Template", "Complete Example"]}>
+<Tab>
+
+This is the blank template. Copy it, fill in your own details, and save it as `.claude/commands/weekly-plan.md`:
+
+````
+You are my weekly planning assistant.
+
+Read these files for context:
+- @identity.md — who I am, my role, my priorities
+- @company.md — my business context and quarterly goals
+
+Then produce a weekly plan with these sections:
+
+## Top 3 Priorities This Week
+Identify the three most important things I should focus on this week.
+Tie each one to a quarterly goal or ongoing commitment.
+
+## Suggested Time Blocks
+Based on my priorities, suggest how to structure my week.
+Keep it realistic — I have meetings and interruptions.
+
+## One Thing to Say No To
+Identify one low-value activity I should skip or delegate this week.
+Explain why it's not worth my time right now.
+
+## Last Week: Wins and Carryovers
+If there are any notes from last week, summarize what got done
+and what needs to carry forward.
+
+Format the output as clean markdown. Be direct and specific —
+no generic advice. Every recommendation should reflect MY actual
+situation and goals.
+````
+
+</Tab>
+<Tab>
+
+Here's what a completed command might look like for a freelance consultant:
+
+````
+You are my weekly planning assistant.
+
+Read these files for context:
+- @identity.md — my consulting practice, specialization in operations
+- @company.md — client roster, quarterly revenue goals, pipeline status
+
+Then produce a weekly plan with these sections:
+
+## Top 3 Priorities This Week
+Identify the three most important things I should focus on this week.
+Tie each one to either a client deliverable or a business development goal.
+I bill by the project, so prioritize revenue-generating work first.
+
+## Suggested Time Blocks
+Based on my priorities, suggest how to structure my week.
+I protect Monday and Friday mornings for deep work.
+Client calls are typically Tuesday-Thursday.
+
+## One Thing to Say No To
+Identify one low-value activity I should skip or delegate this week.
+I tend to over-invest in proposals for small projects — flag those.
+
+## Last Week: Wins and Carryovers
+Check @notes/weekly/ for any notes from last week.
+Summarize what got done and what needs to carry forward.
+
+Format the output as clean markdown. Be direct and specific —
+no generic advice. Every recommendation should reflect my actual
+client load and business goals.
+````
+
+</Tab>
+</Tabs>
+
+## Building Your Command
+
+<Steps>
+<Step>
+
+**Create the commands folder.** In your project, create the folder `.claude/commands/` if it doesn't already exist. This is where all your custom commands live.
+
+```
+Create a .claude/commands/ folder in this project if one doesn't exist yet.
+```
+
+</Step>
+<Step>
+
+**Create the command file.** Save a new file called `weekly-plan.md` inside `.claude/commands/`. Paste the template and customize it with your own details — your role, your goals, the files you want Claude to read.
+
+</Step>
+<Step>
+
+**Restart Claude Code.** Custom commands are loaded when Claude Code starts. After creating your file, exit and reopen Claude Code so it picks up the new command.
+
+</Step>
+<Step>
+
+**Run it.** Type `/weekly-plan` and hit enter. Claude reads your context files and produces your weekly plan.
+
+</Step>
+<Step>
+
+**Refine.** The first output won't be perfect. That's expected. Read the plan, note what's missing or off, and edit your `weekly-plan.md` file. Every edit makes future runs better.
+
+</Step>
+</Steps>
+
+<Callout type="info">
+Your command file uses `@` references — the same file referencing skill you learned in Module 1. When the command says `@identity.md`, Claude reads that file automatically. No copy-pasting needed.
+</Callout>
+
+## Making It Better Over Time
+
+After running `/weekly-plan` a few times, you'll notice patterns in what works and what doesn't. Here's how to adjust:
+
+| If the output... | Adjust your command by... |
+|---|---|
+| Is too generic ("focus on high-impact work") | Adding more specific context about your goals and constraints |
+| Misses important meetings or deadlines | Adding a reference to your calendar notes or upcoming commitments file |
+| Suggests unrealistic time blocks | Adding a line about your actual available hours and meeting load |
+| Doesn't reflect last week's progress | Creating a `notes/weekly/` folder and saving brief end-of-week notes |
+| Prioritizes the wrong things | Being more explicit about what "important" means for your role |
+
+The command file is a living document. The more specific you make it, the more useful the output becomes.
+
+## Try It
+
+Build and run your `/weekly-plan` command right now:
+
+1. Create `.claude/commands/weekly-plan.md` using the template above
+2. Customize it with your real role, goals, and file references
+3. Restart Claude Code
+4. Type `/weekly-plan` and review the output
+5. Make one edit to improve it, then run it again
+
+You just built your first reusable workflow. Next time Monday rolls around, you won't plan from scratch — you'll type one command and get to work.
+
+When you're ready, move on to **3.2: Meeting Prep** to build a command that handles dynamic input.

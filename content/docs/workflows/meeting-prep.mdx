@@ -1,0 +1,231 @@
+---
+title: "3.2: Meeting Prep"
+description: Build a /prep-meeting command that takes a name and produces a one-page briefing — who they are, your history, and what to talk about.
+---
+
+## The 5-Minute Prep That Changes Everything
+
+You have a call in 20 minutes. You know the person's name, but you can't quite remember the details. What did you discuss last time? What's their company doing right now? What should you bring up?
+
+So you scramble — check old emails, scan LinkedIn, skim past notes. You piece together enough to not look unprepared. But you're reacting, not leading the conversation.
+
+The best version of this meeting starts with a one-page brief: who they are, what you know about their situation, and three things worth talking about. That brief takes 30 minutes to build manually. With a custom command, it takes one line.
+
+## Before and After
+
+<Tabs items={["Before: Manual Prep", "After: /prep-meeting"]}>
+<Tab>
+
+**Scrambling before a call:**
+
+1. Search email for their name — skim the last few threads
+2. Check LinkedIn — what's their title again?
+3. Look for old meeting notes — hope you saved them somewhere
+4. Try to remember what you discussed last time
+5. Think of something smart to say
+
+**Time:** 15-30 minutes. Often shortened to "I'll just wing it."
+
+</Tab>
+<Tab>
+
+**One-command prep:**
+
+```
+/prep-meeting Sarah Chen - quarterly review
+```
+
+Claude reads your context files and any past meeting notes, then produces:
+
+- **Who they are** — role, company, how you know them
+- **Your history** — what you've discussed before, any open items
+- **Their situation** — what's likely on their mind right now
+- **3 talking points** — specific, relevant things to bring up
+- **1 good question** — something that shows you've been paying attention
+
+**Time:** Under a minute. Every meeting starts with preparation, not panic.
+
+</Tab>
+</Tabs>
+
+## The Command Template
+
+<Tabs items={["Template", "Complete Example"]}>
+<Tab>
+
+Save this as `.claude/commands/prep-meeting.md`:
+
+````
+You are my meeting preparation assistant.
+
+I'm about to meet with: $ARGUMENTS
+
+Read these files for context:
+- @identity.md — who I am, my role, my business
+- @company.md — my company context and current priorities
+
+Check if there are any past notes about this person in my
+meetings/ or notes/ folder. Look for their name in file names
+or content.
+
+Then produce a one-page meeting brief with these sections:
+
+## Who They Are
+Their name, role, company, and how we're connected.
+Use whatever I have on file — don't make things up.
+
+## Our History
+What we've discussed before, any commitments or open items.
+If I have no history with them, say so — and note this is
+a first meeting.
+
+## What's on Their Mind
+Based on their role and situation, what are they likely
+thinking about right now? What pressures or goals are
+they dealing with?
+
+## 3 Talking Points
+Specific things I should bring up in this meeting.
+Each one should be relevant to BOTH of us — not generic small talk.
+
+## 1 Good Question
+A thoughtful question that shows I've been paying attention
+and moves the relationship forward.
+
+Keep it to one page. Be specific and direct.
+````
+
+</Tab>
+<Tab>
+
+Here's what the command might look like for a consultant who tracks client meetings:
+
+````
+You are my meeting preparation assistant.
+
+I'm about to meet with: $ARGUMENTS
+
+Read these files for context:
+- @identity.md — my consulting practice and specialization
+- @company.md — my current clients and services
+
+Check for past notes about this person:
+- Look in meetings/ for files with their name
+- Check clients/ for any project files related to their company
+- Scan notes/ for any mentions
+
+Then produce a one-page meeting brief with these sections:
+
+## Who They Are
+Their name, role, company, and our relationship (client,
+prospect, referral partner, etc.). Use my files — don't guess.
+
+## Our History
+Past meetings, project work, any outstanding deliverables
+or follow-ups I owe them. If this is a first meeting,
+note that and suggest ice-breakers based on their role.
+
+## What's on Their Mind
+Based on their role and industry, what challenges are they
+likely facing? What would make this meeting valuable for them?
+
+## 3 Talking Points
+Specific topics I should raise. At least one should connect
+to my services. The others should show I understand their world.
+
+## 1 Good Question
+Something that opens a real conversation — not "How's business?"
+but something tied to their specific situation.
+
+Keep it to one page. I read this 5 minutes before the call.
+````
+
+</Tab>
+</Tabs>
+
+## The `$ARGUMENTS` Variable
+
+Notice something new in this command: `$ARGUMENTS`.
+
+In Lesson 3.1, your `/weekly-plan` command ran the same way every time. But meeting prep needs to know *who* you're meeting with. That's what `$ARGUMENTS` does — it passes whatever you type after the command name into the prompt.
+
+```
+/prep-meeting Sarah Chen - quarterly review
+```
+
+In this example, `$ARGUMENTS` becomes `Sarah Chen - quarterly review`. Claude uses that to know who to research and what the meeting is about.
+
+You can pass anything as arguments:
+
+| Command | What `$ARGUMENTS` becomes |
+|---|---|
+| `/prep-meeting Sarah Chen` | `Sarah Chen` |
+| `/prep-meeting Sarah Chen - quarterly review` | `Sarah Chen - quarterly review` |
+| `/prep-meeting new prospect, CEO of Greenfield Goods` | `new prospect, CEO of Greenfield Goods` |
+
+<Callout type="info">
+`$ARGUMENTS` is the only variable available in custom commands. It captures everything typed after the command name. If you need Claude to know multiple pieces of information, just include them all in the arguments — Claude is good at parsing natural language.
+</Callout>
+
+## Building on What You Know
+
+This command combines skills from earlier modules. Here's the connection:
+
+| Skill from earlier | How meeting prep uses it |
+|---|---|
+| `@` file references (Module 1) | The command automatically reads your identity, company, and meeting notes |
+| Agents (Module 1) | Claude searches across multiple folders to find relevant history |
+| CLAUDE.md (Module 1) | Your project memory shapes how Claude interprets your relationship with the contact |
+| Identity file (Module 2) | Claude knows your role and services — talking points reflect what you actually do |
+| Style guide (Module 2) | The brief is written in a tone that matches how you think |
+
+You're not learning a new tool. You're combining tools you already have.
+
+## Leveling Up: Sub-agent Perspectives
+
+Once your basic `/prep-meeting` command is working, you can add sub-agents for richer briefings. Add these lines to the end of your command file:
+
+```
+After creating the brief, run two sub-agents:
+
+1. Strategist: Based on my business goals and this person's
+   role, suggest one thing I could propose or offer in this
+   meeting that would be valuable to both of us.
+
+2. Researcher: If I have any files about their company or
+   industry, identify one recent trend or challenge that
+   would make a good conversation starter.
+
+Add their findings as two short sections at the end of the brief.
+```
+
+This is the sub-agent pattern from Module 1 — but now it's built into a reusable command. Every meeting prep automatically includes strategic advice and research.
+
+## Organizing Meeting Notes
+
+<Callout type="idea">
+**Make your meetings compound.** Create a `meetings/` folder in your project. After each call, save a brief note — even just 3 bullet points about what you discussed. The next time you run `/prep-meeting` for that person, Claude finds those notes automatically. Your briefings get better with every conversation.
+</Callout>
+
+A simple meeting note looks like this:
+
+```
+# Sarah Chen — April 15, 2025
+
+- Discussed Q2 operations overhaul — she's hiring two new managers
+- She asked about our onboarding framework — send her the template
+- Follow up in 3 weeks when new hires are settled
+```
+
+Save it as `meetings/sarah-chen-2025-04-15.md`. That's it. Next time you run `/prep-meeting Sarah Chen`, Claude finds this file and includes the context.
+
+## Try It
+
+1. Create `.claude/commands/prep-meeting.md` using the template above
+2. Customize it with your file references and folder structure
+3. Create a `meetings/` folder and add one past meeting note (even a short one)
+4. Restart Claude Code
+5. Run `/prep-meeting` with a real person's name — someone you're actually meeting this week
+6. Review the brief and refine the command
+
+You now have a command that gets smarter every time you save a meeting note. When you're ready, move on to **3.3: Client Research & Outreach** to build the most advanced workflow in this course.

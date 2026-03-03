@@ -1,0 +1,263 @@
+---
+title: "3.3: Client Research & Outreach"
+description: Build a /research-client command that runs parallel research, analyzes fit, drafts personalized outreach, and suggests follow-ups — all in your voice.
+---
+
+## Cold Outreach That Doesn't Feel Cold
+
+The worst business emails all sound the same: "I came across your company and thought there might be synergies..." Delete.
+
+The best ones sound like the person actually did their homework: they know your situation, they reference something specific, and their offer feels relevant — not random.
+
+The difference isn't talent. It's preparation. And preparation takes time — time most people skip because they have 15 other things to do.
+
+This workflow does the preparation for you. One command. Real research. Personalized outreach. In your voice.
+
+## Before and After
+
+<Tabs items={["Before: Manual Research", "After: /research-client"]}>
+<Tab>
+
+**The research-and-outreach grind:**
+
+1. Google the person and their company — open 8 tabs
+2. Check LinkedIn — read their recent posts, scan their bio
+3. Visit the company website — figure out what they actually do
+4. Think about how your services connect to their situation
+5. Draft an email — rewrite it three times to not sound generic
+6. Think about follow-up timing — then forget to follow up
+
+**Time:** 30-45 minutes per prospect. You do maybe 3-4 a week before burning out.
+
+</Tab>
+<Tab>
+
+**One-command research and outreach:**
+
+```
+/research-client Maria Torres, CEO of Greenfield Goods
+```
+
+Claude runs parallel research, analyzes the fit, and produces:
+
+- **Research summary** — who they are, what the company does, recent activity
+- **Strategic angle** — how your services connect to their situation
+- **Outreach draft** — a personalized email in your voice
+- **Follow-up sequence** — 2-3 follow-ups with suggested timing
+- **Editor review** — a quality check before you send anything
+
+**Time:** About 3 minutes. You review and edit the output, then send.
+
+</Tab>
+</Tabs>
+
+## The Command Template
+
+<Tabs items={["Template", "Complete Example"]}>
+<Tab>
+
+Save this as `.claude/commands/research-client.md`. This is the most advanced command in the course — it uses agents, sub-agents, and your full context stack:
+
+````
+You are my client research and outreach assistant.
+
+Research this prospect: $ARGUMENTS
+
+Read these files for context:
+- @identity.md — who I am, my expertise, my services
+- @company.md — my business, ideal client profile, current offerings
+- @style-guide.md — how I write and communicate
+
+Check prospects/ and clients/ folders for any existing
+information about this person or their company.
+
+## Step 1: Research
+Create two agents to research in parallel:
+
+Agent 1 — Company Research:
+Analyze any files I have about this company. Summarize what
+they do, their size, their market, and any recent changes
+or challenges they might be facing.
+
+Agent 2 — Person Research:
+Analyze any files I have about this person. Their role,
+background, how long they've been in the position, and
+anything that suggests what they care about professionally.
+
+## Step 2: Strategic Angle
+Based on the research, identify:
+- The strongest connection between what I offer and what they need
+- One specific problem I could help them solve
+- Why now might be the right time to reach out
+
+## Step 3: Draft Outreach
+Write a personalized email that:
+- References something specific about them (not generic flattery)
+- Connects their situation to my expertise in one sentence
+- Makes a clear, low-pressure ask (coffee chat, quick call, etc.)
+- Sounds like me — use @style-guide.md for tone and voice
+- Is under 150 words — busy people don't read long cold emails
+
+## Step 4: Follow-up Sequence
+Draft 2-3 follow-up emails:
+- Follow-up 1: 5-7 days later, add one new insight
+- Follow-up 2: 10-14 days later, different angle or offer
+- Follow-up 3 (optional): 30 days later, brief check-in
+
+## Step 5: Editor Review
+Run a sub-agent as an Editor who reviews the outreach draft
+and follow-ups for:
+- Anything that sounds generic or templated
+- Claims I can't back up
+- Tone that doesn't match my style guide
+- Anything that feels pushy or salesy
+
+Flag issues and suggest fixes.
+
+Output everything in clean markdown with clear section headers.
+````
+
+</Tab>
+<Tab>
+
+Here's what the command looks like filled in for a strategy consultant:
+
+````
+You are my client research and outreach assistant.
+
+Research this prospect: $ARGUMENTS
+
+Read these files for context:
+- @identity.md — independent strategy consultant, 18 years
+  in financial services, now focused on operational efficiency
+- @company.md — my practice details, typical engagement size,
+  ideal client profile (mid-market companies, 50-500 employees)
+- @style-guide.md — direct, warm, no jargon, peer-to-peer tone
+
+Check prospects/ and clients/ folders for any existing
+information about this person or their company.
+
+## Step 1: Research
+Create two agents to research in parallel:
+
+Agent 1 — Company Research:
+Analyze any files I have about this company. Focus on:
+revenue stage, team size, operational complexity, and any
+signs they're scaling or restructuring. These are my
+typical entry points for new clients.
+
+Agent 2 — Person Research:
+Analyze any files I have about this person. Focus on:
+their background, how long they've been in role, and
+whether they're likely the decision-maker for operational
+projects.
+
+## Step 2: Strategic Angle
+Based on the research, identify:
+- Which of my three service tiers fits their likely needs
+  (diagnostic, implementation, or ongoing advisory)
+- One operational bottleneck I could help them solve
+  based on patterns I've seen in similar companies
+- A relevant case study from my past work (check clients/
+  for examples)
+
+## Step 3: Draft Outreach
+Write a personalized email that:
+- References something specific about their company situation
+- Connects it to a similar challenge I've helped solve
+- Offers a 20-minute diagnostic call (my standard first step)
+- Sounds like me — warm, direct, no consulting-speak
+- Is under 150 words
+
+## Step 4: Follow-up Sequence
+Draft 2 follow-up emails:
+- Follow-up 1 (day 7): Share a relevant insight about
+  their industry — something useful even if they don't reply
+- Follow-up 2 (day 14): Different angle — reference a
+  trend affecting companies their size
+
+## Step 5: Editor Review
+Run a sub-agent as an Editor who reviews everything for:
+- Generic phrases ("I'd love to connect" — replace with
+  something specific)
+- Unsupported claims about their company
+- Tone mismatches with my style guide
+- Anything that sounds like a mass email
+
+Flag issues and suggest specific rewrites.
+
+Output everything in clean markdown with clear section headers.
+````
+
+</Tab>
+</Tabs>
+
+## How This Uses Everything
+
+This workflow is the capstone of the course. It combines every skill you've built:
+
+| What it uses | From | What it does here |
+|---|---|---|
+| **Identity file** | Module 2 | Claude knows your expertise, so talking points are relevant |
+| **Company context** | Module 2 | Claude matches prospects to your ideal client profile |
+| **Style guide** | Module 2 | Outreach drafts sound like you, not like a template |
+| **`@` file references** | Module 1 | The command reads your context files automatically |
+| **Agents** | Module 1 | Parallel research on person + company at the same time |
+| **Sub-agents** | Module 1 | Editor reviews the draft for quality before you see it |
+| **`$ARGUMENTS`** | Module 3 | You pass the prospect name dynamically each time |
+| **Custom commands** | Module 3 | The whole thing runs with one line |
+
+This is what it looks like when the full context stack works together.
+
+## Making Your Research Better Over Time
+
+Just like meeting prep, client research gets better the more information you give it to work with.
+
+<Steps>
+<Step>
+
+**Save your research.** After running `/research-client`, save the output to a `prospects/` folder. Use the person's name as the filename: `prospects/maria-torres.md`.
+
+</Step>
+<Step>
+
+**After a call, update the file.** Add notes about what you discussed, what they're interested in, and any next steps.
+
+</Step>
+<Step>
+
+**When they become a client, move the file.** Move it from `prospects/` to `clients/`. Now your `/prep-meeting` command can find it too.
+
+</Step>
+<Step>
+
+**The workflows compound.** `/research-client` creates the prospect file. `/prep-meeting` reads it before your next call. Every interaction builds on the last.
+
+</Step>
+</Steps>
+
+This is the real power of workflows: they don't just save time individually — they feed into each other.
+
+## When Not to Use This
+
+<Callout type="warn">
+**Important limitations to keep in mind:**
+
+- **Claude can't browse the web live.** If you want Claude to analyze someone's LinkedIn profile or company website, paste the content into a file first (e.g., `prospects/maria-torres-linkedin.txt`). Claude reads files brilliantly — it just can't visit URLs on its own.
+- **Always read before you send.** The outreach draft is a starting point, not a finished product. Read every email before sending. Add personal touches, fix anything that feels off, and make sure the tone is right.
+- **Don't trust claims you can't verify.** If Claude says "their company recently raised a Series B," confirm it. Claude is working from the files you gave it — it can make reasonable inferences, but it can't fact-check against the live internet.
+</Callout>
+
+## Try It
+
+1. Create `.claude/commands/research-client.md` using the template above
+2. Customize it with your real services, client profile, and style guide references
+3. Create a `prospects/` folder
+4. Pick a real prospect — someone you've been meaning to reach out to
+5. If you have any information about them (LinkedIn profile text, company "About" page, past emails), paste it into a file in `prospects/`
+6. Restart Claude Code and run `/research-client` with their name
+7. Review the output — edit the email draft, then consider actually sending it
+
+You've just built the most advanced workflow in this course. One command that does research, strategic analysis, personalized writing, and quality review — all using the context stack you built in Modules 1-2.
+
+When you're ready, head to **What's Next** to see how far you've come and what's ahead.
