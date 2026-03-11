@@ -88,7 +88,9 @@ Once signed in, run a quick health check from your terminal:
 claude doctor
 ```
 
-This verifies your installation, subscription, and system configuration. If everything passes, you're all set.
+This verifies your installation, subscription, and system configuration. At the end, you may see **"Press Enter to continue…"** — just press Enter to return to your prompt.
+
+If you see warnings, read them, but only treat it as a blocker if `claude doctor` reports an actual error.
 
 ## Troubleshooting
 
@@ -97,6 +99,7 @@ This verifies your installation, subscription, and system configuration. If ever
 | `claude: command not found` | Quit your terminal app entirely (Mac: `Cmd + Q`, Windows: close the window) and open a fresh one. If still failing, run the install command again in the new terminal |
 | Browser doesn't open for sign-in | Copy the URL shown in the terminal and paste it into your browser manually |
 | `claude doctor` shows errors | Run the install command again to update Claude Code |
+| `claude doctor` shows warnings | Warnings are often informational. If there are no errors, press Enter to continue and proceed |
 | "No subscription found" error | Make sure you have a Claude Pro ($20/mo) or Max subscription at [claude.ai](https://claude.ai) |
 | Windows: Claude Code can't find Git Bash | Install [Git for Windows](https://git-scm.com/downloads/win), then restart your terminal |
 

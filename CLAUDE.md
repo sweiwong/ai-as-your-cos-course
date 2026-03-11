@@ -4,11 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A course website built with **Next.js 16 + Fumadocs** that teaches mid-career professionals (non-technical solopreneurs, founders, operators) how to use AI tools (Claude Code, ChatGPT, Cursor) as cognitive multipliers. Content is written in MDX and organized into: 
+A course website built with **Next.js 16 + Fumadocs** that teaches mid-career professionals (non-technical solopreneurs, founders, operators) how to use AI tools (Claude Code, ChatGPT, Cursor) as cognitive multipliers. Content is written in MDX and organized into:
 * Home
 * Module 0: Getting Started
 * Module 1: Fundamentals
-* Module 2: Context 
+* Module 2: Context
+* Module 3: Workflows
 
 ## Commands
 
@@ -38,7 +39,7 @@ npm run types:check  # Full type check: fumadocs-mdx + next + tsc --noEmit
 3. If adding a new section or reordering, update the relevant `meta.json`
 4. Changes hot-reload in dev mode — no restart needed
 
-**Module folders:** `getting-started/`, `fundamentals/` (course-intro, visual-workspace, working-with-files, commands-navigation, agents, custom-subagents, project-memory, whats-next), `context/`
+**Module folders:** `getting-started/`, `fundamentals/` (course-intro, visual-workspace, working-with-files, commands-navigation, agents, custom-subagents, project-memory, whats-next), `context/`, `workflows/` (weekly-planning, meeting-prep, client-research)
 
 ## Key Files
 
